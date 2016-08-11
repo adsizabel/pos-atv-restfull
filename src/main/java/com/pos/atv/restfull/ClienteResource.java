@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,8 +29,10 @@ public class ClienteResource {
     
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void salvar(Cliente cliente){
+    @Consumes(MediaType.APPLICATION_XML)
+    public Cliente salvar(Cliente cliente){
         em.persist(cliente);
+        return cliente;
     }
     
 //    public List<Cliente> listarCliente(){
