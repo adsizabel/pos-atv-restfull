@@ -24,7 +24,7 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 public class ClienteResource {
     
-    @PersistenceContext()
+    @PersistenceContext(name = "jdbc/restfull")
     private EntityManager em;;
     
     @POST

@@ -5,17 +5,32 @@
  */
 package com.pos.atv.restfull;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Izabel Silva
  */
 
-
-public class Cliente {
+@Entity
+public class Cliente implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;    
     private String nome;
-    private String id;
+       
 
     public Cliente() {
+    }
+
+    public Cliente(String id, String nome) {
+        this.id = id;
+        this.nome = nome;
     }
 
     public String getNome() {
